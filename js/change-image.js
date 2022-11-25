@@ -25,16 +25,11 @@ const сhangeSizeImage = (evt, scaleValue) => {
   const { target } = evt;
   if (target.classList.contains('scale__control--bigger')) {
     scaleValue = Math.min(scaleValue + SCALE.STEP, SCALE.MAX);
-    if (scaleValue === SCALE.MAX) {
-      modalImage.style.transform = 'scale(1)';
-    }
-    else {
-      modalImage.style.transform = `scale(0.${scaleValue})`;
-    }
+    modalImage.style.transform = `scale(${scaleValue / 100})`;
   }
   else if (target.classList.contains('scale__control--smaller')) {
     scaleValue = Math.max(scaleValue - SCALE.STEP, SCALE.MIN);
-    modalImage.style.transform = `scale(0.${scaleValue})`;
+    modalImage.style.transform = `scale(${scaleValue / 100})`;
   }
   return scaleValue;
 };
